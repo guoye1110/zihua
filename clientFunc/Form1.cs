@@ -55,12 +55,12 @@ namespace clientFunc
         private void Form1_Load(object sender, EventArgs e)
         {
             //initialize mySQL parameters
-            mySQLClass mySQL = new mySQLClass();
+            //mySQLClass mySQL = new mySQLClass();
 
-            if (gVariable.rebuild_database == 1) //we need to clear current data and rebuild a new one
-            {
-                mySQLClass.buildBasicDatabase();
-            }
+            //if (gVariable.rebuild_database == 1) //we need to clear current data and rebuild a new one
+            //{
+            //    mySQLClass.buildBasicDatabase();
+            //}
 
             aTimer = new System.Windows.Forms.Timer();
 

@@ -96,7 +96,9 @@ namespace database
             try
             {
                 //basic info
-                deleteDatabase(sampleDatabaseName);
+                //deleteDatabase(sampleDatabaseName);
+                if (is_DatabseExist(sampleDatabaseName))	return;
+
                 createDatabase(sampleDatabaseName);
 
                 for (i = 0; i < infoTableName.Length; i++)  //need to look for sample data in excel files
@@ -114,6 +116,23 @@ namespace database
                 Console.WriteLine("buildBasicDatabase failed!" + ex);
             }
         }
+
+		public static bool is_DatabseExist(String databaseName)
+        {
+            MySqlConnection myConnection = new MySqlConnection(connectionString);
+
+        	try {
+				MySqlCommand cmd = new MySqlCommand("use " + databaseName, myConnection);
+				myConnection.Open();
+                cmd.ExecuteNonQuery();
+				myConnection.Close();
+				return true;
+        	}
+			catch (Exception ex) {
+				myConnection.Close();
+				return false;
+			}
+		}
 
         public static void createDatabase(String databaseName)
         {
