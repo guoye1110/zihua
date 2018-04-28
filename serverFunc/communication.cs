@@ -106,8 +106,8 @@ namespace serverFunc
                     ServerThread newclient = new ServerThread(clientSocket);
 
                     //开启一个新的线程负责和该客户端之间的通讯
-                    Thread newthread = new Thread(new ThreadStart(newclient.ClientServer));
-                    newthread.Start();
+                    //Thread newthread = new Thread(new ThreadStart(newclient.ClientServer));
+                    //newthread.Start();
 
                     //100毫秒后会再次进入监听状态，等待下一个客户端的接入
                     Thread.Sleep(100);
@@ -122,6 +122,8 @@ namespace serverFunc
         class ServerThread
         {
             Thread thread1;
+			//客户端connect后server发起的第一个线程，目的是确定clientID（processMachineID）
+			Thread identify_ClientID_thread;
 
             const int MAX_DATA_LENGTH = 2000;
 
@@ -138,7 +140,28 @@ namespace serverFunc
             {
                 this.serverSocket = serverSocket;
                 dataSendingTriggerFlag = -1;
+				identify_ClientID_thread = new Thread(new ThreadStart(this.identify_ClientID));
             }
+
+			private bool validate_recved_data(byte[] buf)
+            {
+            	if (buf[0] == 'w' && buf[1] == 'I' && buf[2] == 'F' && buf[3] == 'i' && \
+					toolClass.checkCrc32Code(receiveBytes, recCount) == true)
+            
+            }
+
+			public void identify_ClientID()
+            {
+            	int len;
+
+				try {
+					while(true){
+						//接收数据
+						recCount = serverSocket.Receive(receiveBytes, receiveBytes.Length, 0);
+						if (recCount != 0) {
+							check
+						}
+			}
 
             public void ClientServer()
             {

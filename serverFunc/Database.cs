@@ -96,7 +96,7 @@ namespace database
             try
             {
                 //basic info
-                deleteDatabase(sampleDatabaseName);
+                //deleteDatabase(sampleDatabaseName);
                 createDatabase(sampleDatabaseName);
 
                 for (i = 0; i < infoTableName.Length; i++)  //need to look for sample data in excel files
@@ -133,7 +133,6 @@ namespace database
                 Console.WriteLine("database " + databaseName + "generating fail!" + ex);
             }
         }
-
 
         //create a new table under a certain database
         public static void createDataTable(String databaseName, string createDataTableString)
