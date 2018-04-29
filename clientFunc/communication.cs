@@ -9,7 +9,7 @@ using System.Windows.Forms;
 using System.Net;
 using System.Threading;
 using System.Net.Sockets;
-using database;
+//using database;
 
 namespace clientFunc
 {
@@ -212,7 +212,7 @@ namespace clientFunc
             dataArray[2] = clientID.ToString();
             dataArray[3] = receivedString;
             dataArray[4] = "";
-            mySQLClass.addNewRecordToTable(mySQLClass.sampleDatabaseName, mySQLClass.UI_InputTableName + clientID.ToString(), mySQLClass.UI_InputFileName, dataArray);
+            //mySQLClass.addNewRecordToTable(mySQLClass.sampleDatabaseName, mySQLClass.UI_InputTableName + clientID.ToString(), mySQLClass.UI_InputFileName, dataArray);
         }
     }
 }

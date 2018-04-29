@@ -133,5 +133,28 @@ namespace serverFunc
             }
             return bin.ToString();
         }
+
+        //return: 0, not a number
+        //        1, it is a number string    
+        public static int isDigitalNum(string str)
+        {
+            int i;
+            int ret;
+            char[] strArray;
+
+            strArray = str.Trim().ToCharArray();
+
+            ret = 0;
+            for (i = 0; i < strArray.Length; i++)
+            {
+                if (strArray[i] < 0x30 || strArray[i] > 0x39)
+                {
+                    ret = 0;
+                    break;
+                }
+                ret = 1;
+            }
+            return ret;
+        }			
     }
 }

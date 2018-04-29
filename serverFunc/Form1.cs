@@ -9,6 +9,7 @@ using System.Windows.Forms;
 using System.Net;
 using System.Threading;
 using System.Net.Sockets;
+using database;
 
 namespace serverFunc
 {
@@ -60,6 +61,10 @@ namespace serverFunc
         private void Form1_Load(object sender, EventArgs e)
         {
             int i;
+
+			mySQLClass mySQL = new mySQLClass();
+
+			mySQLClass.buildBasicDatabase();
 
             for (i = 0; i < gVariable.MAX_CLIENT_NUM; i++)
             {
