@@ -9,6 +9,7 @@ using System.Windows.Forms;
 using System.Net;
 using System.Threading;
 using System.Net.Sockets;
+using database;
 
 namespace serverFunc
 {

@@ -10,7 +10,7 @@ using System.Windows.Forms;
 using System.Net;
 using System.Threading;
 using System.Net.Sockets;
-using database;
+//using database;
 
 namespace clientFunc
 {
@@ -54,6 +54,14 @@ namespace clientFunc
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            //initialize mySQL parameters
+            //mySQLClass mySQL = new mySQLClass();
+
+            //if (gVariable.rebuild_database == 1) //we need to clear current data and rebuild a new one
+            //{
+            //    mySQLClass.buildBasicDatabase();
+            //}
+
             aTimer = new System.Windows.Forms.Timer();
 
             //发送数据的时间间隔为 500 毫秒
@@ -79,7 +87,7 @@ namespace clientFunc
             string commandText;
             string[,] dataArray;
 
-            try
+            /*try
             {
                 aTimer.Stop();
 
@@ -148,7 +156,7 @@ namespace clientFunc
             catch (Exception ex)
             {
                 Console.WriteLine("显示列表框出错，微软的提示信息为：" + ex);
-            }
+            }*/
         }
 
         //start communication
@@ -182,10 +190,10 @@ namespace clientFunc
                     Thread thread1 = new Thread(new ThreadStart(communication.startCommunication));
                     thread1.Start();
                 }
-                else
+                /*else
                 {
                     aTimer.Start();
-                }
+                }*/
 
                 communication.serverConnected = 1;
             }
@@ -198,7 +206,7 @@ namespace clientFunc
         //stop communication
         private void button2_Click(object sender, EventArgs e)
         {
-            aTimer.Stop();
+            //aTimer.Stop();
         }
     }
 }

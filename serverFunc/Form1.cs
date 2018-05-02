@@ -62,13 +62,9 @@ namespace serverFunc
         {
             int i;
 
-            //initialize mySQL parameters
-            mySQLClass mySQL = new mySQLClass();
+			mySQLClass mySQL = new mySQLClass();
 
-            //if (gVariable.rebuild_database == 1) //we need to clear current data and rebuild a new one
-            {
-                mySQLClass.buildBasicDatabase();
-            }
+			mySQLClass.buildBasicDatabase();
 
             for (i = 0; i < gVariable.MAX_CLIENT_NUM; i++)
             {
